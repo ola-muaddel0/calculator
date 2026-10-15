@@ -15,6 +15,15 @@ function divide(a, b) {
 function power(a, b) {
     return a ** b;
 }
-let numberOne ;
-let operand ;
-let numberTwo ;
+let numberOne;
+let operand;
+let numberTwo;
+
+function operate(a, operator, b) {
+    let result;
+    if (operator === '+') result = add(a, b);
+    if (operator === '-') result = subtract(a, b);
+    if (operator === '*') result = multiply(a, b);
+    if (operator === '/') result = divide(a, b);
+    if (operator === '^') result = power(a, b);
+}
