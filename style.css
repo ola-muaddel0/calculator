@@ -8,3 +8,12 @@ body {
     padding: 2.5rem;
 }
 
+button {
+    font-size: 18px;
+    color: #ababb8;
+    width: 64px;
+    height: 64px;
+    background-color: #3b3d4c;
+    border-width: 3px;
+    border-image: linear-gradient(#87899b,#454649, #20222b) 1;
+}
