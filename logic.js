@@ -1,3 +1,13 @@
+const equalBtn = document.querySelector('.equal-btn');
+const numberBtns = document.querySelectorAll('.numbers-row button');
+const numberBtnsArray = Array.from(numberBtns);
+let numberOne;
+let operand;
+let numberTwo;
+
+function updateNumber(number, digit) {
+    number = number * 10 + digit;
+}
 // Mathematical functions
 function add(a, b) {
     return a + b;
@@ -15,9 +25,6 @@ function divide(a, b) {
 function power(a, b) {
     return a ** b;
 }
-let numberOne;
-let operand;
-let numberTwo;
 
 function operate(a, operator, b) {
     let result;
