@@ -10,6 +10,27 @@ let numberTwo;
 
 equalBtn.addEventListener('click', () => operate(numberOne, operator, numberTwo));
 
+numberBtns.forEach(numberBtn => {
+    numberBtn.addEventListener('click', () => {
+        const enteredNum = parseInt(numberBtn.textContent)
+        if (operator === undefined) {
+            if (numberOne === undefined) numberOne = enteredNum;
+            else numberOne = updateNumber(numberOne, enteredNum);
+        }
+        else {
+            if (numberTwo === undefined) numberTwo = enteredNum
+            else numberTwo = updateNumber(numberTwo, enteredNum);
+        }
+    })
+});
+operatorBtnsArray.forEach(operatorBtn => {
+    operatorBtn.addEventListener('click', () => {
+        const operatorType = operatorBtn.textContent;
+        if (operatorType != '=') operator = operatorType;
+    });
+});
+
+
 function operate(a, op, b) {
 
     if (a === undefined || b === undefined || op === undefined) {
