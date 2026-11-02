@@ -8,6 +8,8 @@ let numberOne;
 let operator;
 let numberTwo;
 
+equalBtn.addEventListener('click', () => operate(numberOne, operator, numberTwo));
+
 function operate(a, op, b) {
 
     if (a === undefined || b === undefined || op === undefined) {
