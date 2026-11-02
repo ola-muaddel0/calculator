@@ -1,6 +1,8 @@
 const equalBtn = document.querySelector('.equal-btn');
 const numberBtns = document.querySelectorAll('.numbers-row button');
 const numberBtnsArray = Array.from(numberBtns);
+const operatorBtns = document.querySelectorAll('.operators-container button');
+const operatorBtnsArray = Array.from(operatorBtns);
 
 let numberOne;
 let operator;
