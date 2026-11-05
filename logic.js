@@ -4,7 +4,8 @@ const numberBtnsArray = Array.from(numberBtns);
 const operatorBtns = document.querySelectorAll('.operators-container button');
 const operatorBtnsArray = Array.from(operatorBtns);
 const calculatorScreen = document.querySelector('.screen-calculator');
-
+const clearBtn = document.querySelector('clear-button');
+const deleteBtn = document.querySelector('.delete-button');
 let numberOne;
 let operator;
 let numberTwo;
