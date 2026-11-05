@@ -15,23 +15,41 @@ numberBtns.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
         const enteredNum = parseInt(numberBtn.textContent)
         if (operator === undefined) {
-            if (numberOne === undefined) numberOne = enteredNum;
-            else numberOne = updateNumber(numberOne, enteredNum);
+            if (numberOne === undefined) {
+                numberOne = enteredNum;
+                calculatorScreen.textContent = numberOne;
+            }
+            else {
+                numberOne = updateNumber(numberOne, enteredNum);
+                calculatorScreen.textContent += "" + enteredNum;
+            }
         }
         else {
-            if (numberTwo === undefined) numberTwo = enteredNum
-            else numberTwo = updateNumber(numberTwo, enteredNum);
+            if (numberTwo === undefined) {
+                numberTwo = enteredNum;
+                calculatorScreen.textContent += numberTwo;
+            }
+            else {
+                numberTwo = updateNumber(numberTwo, enteredNum);
+                calculatorScreen.textContent += "" + enteredNum;
+            }
         }
     })
 });
 operatorBtnsArray.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', () => {
         const operatorType = operatorBtn.textContent;
-        if (operatorType != '=') operator = operatorType;
+        if (operatorType != '=') {
+            operator = operatorType;
+            calculatorScreen.textContent += operatorType;
+        }
     });
 });
 
-
+function updateNumber(number, digit) {
+    number = number * 10 + digit;
+    return number;
+}
 function operate(a, op, b) {
 
     if (a === undefined || b === undefined || op === undefined) {
@@ -45,7 +63,8 @@ function operate(a, op, b) {
     if (op == '*') result = multiply(a, b);
     if (op == '/') result = divide(a, b);
     if (op == '^') result = power(a, b);
-
+    calculatorScreen.textContent = "";
+    calculatorScreen.textContent = result;
     numberOne = result;
     operator = undefined;
     numberTwo = undefined;
