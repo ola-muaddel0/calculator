@@ -4,8 +4,9 @@ const numberBtnsArray = Array.from(numberBtns);
 const operatorBtns = document.querySelectorAll('.operators-container button');
 const operatorBtnsArray = Array.from(operatorBtns);
 const calculatorScreen = document.querySelector('.screen-calculator');
-const clearBtn = document.querySelector('clear-button');
+const clearBtn = document.querySelector('.clear-button');
 const deleteBtn = document.querySelector('.delete-button');
+
 let numberOne;
 let operator;
 let numberTwo;
@@ -37,15 +38,23 @@ numberBtns.forEach(numberBtn => {
         }
     })
 });
+clearBtn.addEventListener('click', clearCalculatorScreen);
+
 operatorBtnsArray.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', () => {
         const operatorType = operatorBtn.textContent;
-        if (operatorType != '=') {
+        if (operatorType != '=' && operatorType != 'clear' && operatorType != 'X') {
             operator = operatorType;
             calculatorScreen.textContent += operatorType;
         }
     });
 });
+function clearCalculatorScreen() {
+    numberOne = undefined;
+    numberTwo = undefined;
+    operator = undefined;
+    calculatorScreen.textContent = "";
+}
 
 function updateNumber(number, digit) {
     number = number * 10 + digit;
