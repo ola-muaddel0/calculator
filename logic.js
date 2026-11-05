@@ -53,7 +53,7 @@ function updateNumber(number, digit) {
 function operate(a, op, b) {
 
     if (a === undefined || b === undefined || op === undefined) {
-        console.log("Syntax Error");
+        calculatorScreen.textContent = "Syntax Error";
         return "Syntax Error";
     }
 
