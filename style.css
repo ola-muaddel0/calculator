@@ -1,19 +1,42 @@
+.buttons-container {
+    display: flex;
+}
+
+button {
+    width: 48px;
+    height: 48px;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #014f3f;
     padding: 2.5rem;
+}
+
+.number-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-right: 4px;
+}
+
+.numbers-row {
+    display: flex;
+    gap: 4px;
+}
+
+.operators-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 button {
     font-size: 18px;
-    color: #ababb8;
     width: 64px;
     height: 64px;
-    background-color: #3b3d4c;
     border-width: 3px;
-    border-image: linear-gradient(#87899b,#454649, #20222b) 1;
 }
