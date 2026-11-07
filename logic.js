@@ -39,6 +39,7 @@ numberBtns.forEach(numberBtn => {
     })
 });
 clearBtn.addEventListener('click', clearCalculatorScreen);
+deleteBtn.addEventListener('click', deleteOne)
 
 operatorBtnsArray.forEach(operatorBtn => {
     operatorBtn.addEventListener('click', () => {
@@ -54,6 +55,40 @@ function clearCalculatorScreen() {
     numberTwo = undefined;
     operator = undefined;
     calculatorScreen.textContent = "";
+}
+function deleteOne() {
+    const calculatorScreenText = calculatorScreen.textContent;
+    if (calculatorScreenText != '') {
+        if (numberTwo != undefined) {
+            if (numberTwo < 10) {
+                numberTwo = undefined;
+                calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
+            }
+            else {
+                const digit = parseInt((numberTwo + "").slice((numberTwo + "").length - 1, (numberTwo + "").length));
+                numberTwo = parseInt(numberTwo / 10);
+                calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
+
+            }
+        }
+        else if (operator!=undefined){
+            operator = undefined;
+            calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
+        }
+        else {
+            if (numberOne < 10) {
+                numberOne = undefined;
+                calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
+            }
+            else {
+                const digit = parseInt((numberOne + "").slice((numberOne + "").length - 1, (numberOne + "").length));
+                numberOne = parseInt(numberOne / 10);
+                calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
+
+            }
+        }
+    }
+
 }
 
 function updateNumber(number, digit) {
