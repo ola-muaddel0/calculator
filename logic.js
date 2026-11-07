@@ -6,6 +6,7 @@ const operatorBtnsArray = Array.from(operatorBtns);
 const calculatorScreen = document.querySelector('.screen-calculator');
 const clearBtn = document.querySelector('.clear-button');
 const deleteBtn = document.querySelector('.delete-button');
+const dotBtn = document.querySelector('.dot-button');
 
 let numberOne;
 let operator;
@@ -84,7 +85,6 @@ function deleteOne() {
                 const digit = parseInt((numberOne + "").slice((numberOne + "").length - 1, (numberOne + "").length));
                 numberOne = parseInt(numberOne / 10);
                 calculatorScreen.textContent = calculatorScreenText.slice(0, calculatorScreenText.length - 1);
-
             }
         }
     }
@@ -108,7 +108,6 @@ function operate(a, op, b) {
     if (op == '*') result = multiply(a, b);
     if (op == '/') result = divide(a, b);
     if (op == '^') result = power(a, b);
-    calculatorScreen.textContent = "";
     calculatorScreen.textContent = result;
     numberOne = result;
     operator = undefined;
